@@ -21,3 +21,7 @@ sed -i "s|192.168.1.197|{your ip}|g" keyman.sh
 
 6. ./keyman.sh start
 
+7. Open your browser and log in
+Quay Default 
+Username:quay
+Password:Quay12345
