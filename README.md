@@ -12,6 +12,6 @@
 
 Quay Default 
 
-Username:quay
+Username: quay
 
-Password:Quay12345
+Password: Quay12345
