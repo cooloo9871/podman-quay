@@ -16,7 +16,7 @@ spec:
           mountPath: /datastorage
 
     - name: postgresql
-      image: quay.io/flysangel/postgres:9.6.24-alpine
+      image: quay.io/flysangel/postgres:9.6.24
       ports:
         - containerPort: 5432
           hostPort: 5432
