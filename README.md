@@ -4,24 +4,14 @@
 
 3. chmod +x keyman.sh
 
-4. ./keyman.sh
-Usage:
-  keyman.sh [options]
+4. set your ip 
 
-Available options:
-
-ps       podman ps -a
-start    deploy quay
-stop     delete quay
-stop -v  delete quay and hostPath volume
-clean    delete hostPath volume
-
-5. set your ip 
 sed -i "s|192.168.1.197|{your ip}|g" keyman.sh
 
-6. ./keyman.sh start
+5. ./keyman.sh start
 
-7. Open your browser and log in
+6. Open your browser and log in
+
 Quay Default 
 Username:quay
 Password:Quay12345
