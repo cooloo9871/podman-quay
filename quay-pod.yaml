@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quay
+spec:
+  containers:
+    - name: quay-app
+      image: quay.io/flysangel/quay-rhel8:v3.6.10
+      ports:
+        - containerPort: 8080
+          hostPort: 80
+      volumeMounts:
+        - name: quay-config
+          mountPath: /conf/stack
+        - name: quay-storage
+          mountPath: /datastorage
+
+    - name: postgresql
+      image: quay.io/flysangel/postgres:9.6.24-alpine
+      ports:
+        - containerPort: 5432
+          hostPort: 5432
+      env:
+        - name: POSTGRES_USER
+          value: quayuser
+        - name: POSTGRES_PASSWORD
+          value: quaypass
+        - name: POSTGRES_DB
+          value: quay
+      volumeMounts:
+        - name: postgresql-initdb
+          mountPath: /docker-entrypoint-initdb.d/initdb.sql
+        - name: postgresql-storage
+          mountPath: /var/lib/postgresql/data
+
+    - name: redis
+      image: quay.io/flysangel/redis-5:1-171
+      ports:
+        - containerPort: 6379
+          hostPort: 6379
+      env:
+        - name: REDIS_PASSWORD
+          value: strongpassword
+
+  volumes:
+    - name: quay-config
+      hostPath:
+        path: ${QUAY}/config
+        type: Directory
+    - name: quay-storage
+      hostPath:
+        path: ${QUAY_HOSTPATH}
+        type: Directory
+    - name: postgresql-initdb
+      hostPath:
+        path: ${QUAY}/initdb.sql
+        type: File
+    - name: postgresql-storage
+      hostPath:
+        path: ${PSQL_HOSTPATH}
+        type: Directory
+
+  restartPolicy: Always
