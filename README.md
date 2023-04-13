@@ -1,9 +1,8 @@
 1. Install podman first
 
-2. 
-  '''
-  git clone https://github.com/cooloo9871/quay-podman.git;cd quay-podman
-  '''
+'''
+git clone https://github.com/cooloo9871/quay-podman.git;cd quay-podman
+'''  
 
 3. chmod +x keyman.sh
 
