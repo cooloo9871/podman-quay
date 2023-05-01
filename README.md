@@ -2,7 +2,7 @@
 
 2. Download Script
 ```
-$ git clone https://github.com/cooloo9871/quay-podman.git;cd quay-podman
+$ git clone https://github.com/cooloo9871/podman-quay.git;cd podman-quay
 ```
 
 3. Add execution permission
